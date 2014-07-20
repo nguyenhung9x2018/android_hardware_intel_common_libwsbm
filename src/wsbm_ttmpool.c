@@ -38,11 +38,11 @@
 #include <unistd.h>
 #include <errno.h>
 #include <sys/mman.h>
+#include <drm/psb_ttm_placement_user.h>
 #include "wsbm_pool.h"
 #include "assert.h"
 #include "wsbm_priv.h"
 #include "wsbm_manager.h"
-#include "psb_ttm_placement_user.h"
 
 #define DRMRESTARTCOMMANDWRITE(_fd, _val, _arg, _ret)			\
 	do {								\
