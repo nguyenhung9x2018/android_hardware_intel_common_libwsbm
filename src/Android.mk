@@ -1,3 +1,5 @@
+ifeq ($(ENABLE_IMG_GRAPHICS),true)
+
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -37,3 +39,6 @@ LOCAL_COPY_HEADERS :=          \
    wsbm_priv.h         \
    wsbm_util.h
 include $(BUILD_COPY_HEADERS)
+
+endif # ($(ENABLE_IMG_GRAPHICS),true)
+
