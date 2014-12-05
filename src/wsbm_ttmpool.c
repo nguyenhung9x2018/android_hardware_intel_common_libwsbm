@@ -529,7 +529,7 @@ wsbmTTMPoolInit(int fd, unsigned int devOffset)
 }
 
 struct _WsbmBufStorage *
-ttm_pool_ub_create(struct _WsbmBufferPool *pool, unsigned long size, uint32_t placement, unsigned alignment, const unsigned long *user_ptr, int fd)
+ttm_pool_ub_create(struct _WsbmBufferPool *pool, unsigned long size, uint32_t placement, unsigned alignment, const unsigned long *user_ptr)
 {
     struct _TTMBuffer *dBuf = (struct _TTMBuffer *)
 	    calloc(1, sizeof(*dBuf));
@@ -556,7 +556,6 @@ ttm_pool_ub_create(struct _WsbmBufferPool *pool, unsigned long size, uint32_t pl
     arg.req.placement = placement;
     arg.req.page_alignment = alignment / pageSize;
     arg.req.user_address = (unsigned long)user_ptr;
-    arg.req.fd = fd;
 
     DRMRESTARTCOMMANDWRITEREAD(pool->fd, ttmPool->devOffset + TTM_PL_CREATE_UB,
 			       arg, ret);
